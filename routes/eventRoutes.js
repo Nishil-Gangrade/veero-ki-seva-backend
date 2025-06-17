@@ -1,0 +1,10 @@
+// backend/routes/eventRoutes.js
+import express from 'express';
+import { getAllEvents, createEvent } from '../controllers/eventController.js';
+
+const router = express.Router();
+
+router.get('/', getAllEvents);
+router.post('/', createEvent); // you can secure this later with auth
+
+export default router;
