@@ -1,6 +1,7 @@
-import Donation from '../models/Donation.js';
 
-export const createDonation = async (req, res) => {
+const Donation = require('../models/Donation.js');
+
+const createDonation = async (req, res) => {
   try {
     const newDonation = new Donation(req.body);
     await newDonation.save();
@@ -10,7 +11,7 @@ export const createDonation = async (req, res) => {
   }
 };
 
-export const getDonationsByEmail = async (req, res) => {
+const getDonationsByEmail = async (req, res) => {
   try {
     const { email } = req.params;
     const donations = await Donation.find({ email }).sort({ createdAt: -1 });
@@ -19,3 +20,5 @@ export const getDonationsByEmail = async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch donation history' });
   }
 };
+
+module.exports = { createDonation, getDonationsByEmail };

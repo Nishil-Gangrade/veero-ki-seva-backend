@@ -1,5 +1,5 @@
 // backend/models/Event.js
-import mongoose from 'mongoose';
+const mongoose =require('mongoose');
 
 const eventSchema = new mongoose.Schema({
   category: {
@@ -17,4 +17,4 @@ const eventSchema = new mongoose.Schema({
   timestamps: true
 });
 
-export default mongoose.model('Event', eventSchema);
+module.exports= mongoose.model('Event', eventSchema);

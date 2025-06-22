@@ -1,9 +1,9 @@
-import express from 'express';
-import { createDonation, getDonationsByEmail } from '../controllers/donationController.js';
+const express = require('express');
+const { createDonation, getDonationsByEmail } = require('../controllers/donationController');
 
 const router = express.Router();
 
 router.post('/', createDonation);
 router.get('/:email', getDonationsByEmail);
 
-export default router;
+module.exports = router;

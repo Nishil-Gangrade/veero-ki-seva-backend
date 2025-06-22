@@ -1,7 +1,7 @@
 // backend/controllers/authController.js
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import User from '../models/User.js';
+const bcrypt = require ('bcrypt');
+const jwt = require ('jsonwebtoken');
+const User = require ('../models/User.js');
 
 const JWT_SECRET = process.env.JWT_SECRET;
 

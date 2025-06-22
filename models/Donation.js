@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose =require('mongoose');
 
 const donationSchema = new mongoose.Schema({
   name: String,
@@ -16,4 +16,4 @@ const donationSchema = new mongoose.Schema({
   }
 });
 
-export default mongoose.model('Donation', donationSchema);
+module.exports= mongoose.model('Donation', donationSchema);
