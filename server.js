@@ -17,6 +17,9 @@ app.use('/api/auth', authRoutes); // Now your signup route is at /api/auth/signu
 const verifyToken = require("./middleware/authMiddleware");
 const donationRoutes =require('./routes/donationRoutes.js');
 app.use('/api/donations', donationRoutes);
+const uploadRoutes = require('./routes/uploadRoutes');
+app.use('/api/upload', uploadRoutes);
+
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
