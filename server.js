@@ -1,8 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const allowedOrigins = ['http://localhost:5173', 'https://veero-ki-seva.vercel.app'];
-
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://veero-ki-seva.vercel.app',
+  'https://veero-ki-seva-backend.onrender.com'
+];
 require('dotenv').config();  // for .env file
 
 const app = express();
@@ -11,9 +14,10 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (!origin || allowedOrigins.includes(origin) || /vercel\.app$/.test(origin)) {
       callback(null, true);
     } else {
+      console.log("Blocked CORS origin:", origin);
       callback(new Error('Not allowed by CORS'));
     }
   },
