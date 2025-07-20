@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const allowedOrigins = ['http://localhost:3000', 'https://veero-ki-seva.vercel.app'];
+const allowedOrigins = ['http://localhost:5173', 'https://veero-ki-seva.vercel.app'];
 
 require('dotenv').config();  // for .env file
 
