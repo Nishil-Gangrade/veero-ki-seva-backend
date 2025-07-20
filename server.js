@@ -19,6 +19,11 @@ const donationRoutes =require('./routes/donationRoutes.js');
 app.use('/api/donations', donationRoutes);
 const uploadRoutes = require('./routes/uploadRoutes');
 app.use('/api/upload', uploadRoutes);
+const armyRoutes = require('./routes/armyRoutes');
+const adminRoutes = require('./routes/adminRoutes');
+
+app.use('/api/army', armyRoutes);
+app.use('/api/admin', adminRoutes);
 
 
 // MongoDB Connection
