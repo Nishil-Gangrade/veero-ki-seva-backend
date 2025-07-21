@@ -58,10 +58,21 @@ const updateEventStatus = async (req, res) => {
     res.status(500).json({ message: 'Error updating status', error });
   }
 };
+// Get Approved Events for Donor
+const getApprovedEvents = async (req, res) => {
+  try {
+    const approvedEvents = await ArmyEvent.find({ status: 'Approved' }).populate('armyId', 'name email');
+    res.status(200).json(approvedEvents);
+  } catch (error) {
+    console.error('Error fetching approved events:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
 
 module.exports = {
   submitArmyEvent,
   getMyEvents,
   getAllArmyEvents,
-  updateEventStatus
+  updateEventStatus,
+  getApprovedEvents 
 };
